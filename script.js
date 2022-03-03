@@ -23,18 +23,10 @@ function checkUserInput() {
       highscore = score;
     }
     selectHighscore.textContent = highscore;
-  } else if (guess > secretNumber) {
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      message.textContent = "📈 Too high!";
-      score--;
-      selectScore.textContent = score;
-    } else {
-      selectScore.textContent = 0;
-      message.textContent = "💥 You lost the game!";
-    }
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      message.textContent = "📉 Too low!";
+      message.textContent =
+        guess > secretNumber ? "📈 Too high!" : "📉 Too low!";
       score--;
       selectScore.textContent = score;
     } else {
